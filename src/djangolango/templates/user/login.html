@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load django_bootstrap5 %}
+{% block content %}
+<div class="content-section">
+    <div class="container">
+        <!-- Sign up form -->
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 mt-5">Log in</legend>
+                {% bootstrap_form form %}
+            </fieldset>
+            <div class="form-group">
+                {% bootstrap_button button_type="submit" content="Login" %}
+            </div>
+        </form>
+
+        <!-- Sign in form -->
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Do you need an account?
+                <a class="ml-2" href="{% url 'register' %}">Sign up now</a>
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock content %}

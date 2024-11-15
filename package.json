@@ -1,0 +1,30 @@
+{
+  "name": "django-testenv",
+  "version": "1.0.0",
+  "main": "webpack.common.js",
+  "scripts": {
+    "build": "webpack --config=webpack.common.js",
+    "start": "webpack --config=webpack.common.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.81.0",
+    "sass-loader": "^16.0.3"
+  }
+}

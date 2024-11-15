@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        {% block styles %}
+        <link rel="stylesheet" href="{% static "djangolango/main.css" %}">
+        {% endblock %}
+        {% block extra_styles %}{% endblock %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>        <title>{% block title %}{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}{% endblock %}</title>
+    </head>
+    <body class="{% block body_class %}{% endblock body_class %}">
+        {% block messages %}
+        {% if messages %}
+        <div class="messages">
+            <div class="container message-alert">
+                {% for message in messages %}
+                <div class="alert{% if message.tags %} alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                    <span>{{ message }}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Sluit">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endblock %}
+        <section class="page {% block content_class %}{% endblock %}">
+            {% block content %}{% endblock %}
+        </section>
+        {% block scripts %}{% endblock scripts %}
+        <script src="{% static "djangolango/main.js" %}"></script>
+        {% block extra_scripts %}{% endblock %}
+        {% block structered_data %}{% endblock %}
+    </body>
+</html>
